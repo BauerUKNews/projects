@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Project Tracker — Bauer Media</title>
+<title>Project Tracker — Bauer Media</title>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -220,14 +220,7 @@
   .divider{height:1px;background:var(--border);margin:20px 0;}
   .section-label{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text3);margin-bottom:8px;}
 
-  /* SETUP GUIDE */
-  .setup-guide{max-width:860px;margin:48px auto 0;padding:0 32px 56px;}
-  .setup-card{background:white;border:1px solid var(--border);border-radius:var(--r);padding:24px;box-shadow:var(--shadow-sm);}
-  .setup-card-title{font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:800;color:var(--purple);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px;}
-  .setup-card ol{color:var(--text2);font-size:13px;line-height:2.2;padding-left:20px;}
-  .setup-card a{color:var(--purple);}
-  pre#appsScriptCode{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r-sm);padding:16px;margin-top:12px;overflow-x:auto;font-size:11px;color:var(--text2);line-height:1.7;white-space:pre-wrap;}
-  details summary{cursor:pointer;font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:var(--purple);user-select:none;margin-top:14px;}
+
 </style>
 </head>
 <body>
@@ -240,10 +233,11 @@
 
 <header>
   <div class="logo">
-    <div class="logo-mark">AI</div>
+    <div class="logo-mark">BM</div>
     <span>Bauer Media</span>
     <span class="logo-sep">|</span>
     <span style="font-weight:400;opacity:0.85;">Project Tracker</span>
+
   </div>
   <div class="header-actions">
     <button class="btn btn-ghost-inv btn-sm" onclick="openSettings()">⚙ Settings</button>
@@ -399,35 +393,9 @@
   </div>
 </div>
 
-<!-- SETUP GUIDE -->
-<div class="setup-guide">
-  <div class="setup-card">
-    <div class="setup-card-title">📋 Google Apps Script Setup</div>
-    <ol>
-      <li>Go to <a href="https://script.google.com" target="_blank">script.google.com</a> → New Project</li>
-      <li>Paste the code below into <code style="background:var(--bg3);padding:2px 6px;border-radius:3px;font-size:12px;color:var(--purple);">Code.gs</code></li>
-      <li>Click <strong>Deploy → New deployment → Web App</strong></li>
-      <li>Set <em>Execute as: Me</em> and <em>Who has access: Anyone</em></li>
-      <li>Copy the Web App URL and paste it into Settings above</li>
-    </ol>
-    <details>
-      <summary>Show Apps Script code ▸</summary>
-      <pre id="appsScriptCode"></pre>
-      <button class="btn btn-ghost btn-sm" style="margin-top:10px" onclick="copyAppsScript()">Copy Code</button>
-    </details>
-  </div>
-</div>
+
 
 <script>
-const APPS_SCRIPT_CODE=`const SHEET_NAME='AITracker';
-function getSheet(){const ss=SpreadsheetApp.getActiveSpreadsheet();let s=ss.getSheetByName(SHEET_NAME);if(!s){s=ss.insertSheet(SHEET_NAME);s.getRange(1,1).setValue('DATA');}return s;}
-function doGet(e){return ContentService.createTextOutput(JSON.stringify(loadData())).setMimeType(ContentService.MimeType.JSON);}
-function doPost(e){try{const p=JSON.parse(e.postData.contents);if(p.action==='save'){saveData(p.data);return ContentService.createTextOutput(JSON.stringify({ok:true})).setMimeType(ContentService.MimeType.JSON);}}catch(err){return ContentService.createTextOutput(JSON.stringify({ok:false,error:err.message})).setMimeType(ContentService.MimeType.JSON);}}
-function loadData(){const s=getSheet();const c=s.getRange(1,1).getValue();if(!c||c==='DATA')return{projects:[]};try{return JSON.parse(c);}catch(e){return{projects:[]};}}
-function saveData(data){getSheet().getRange(1,1).setValue(JSON.stringify(data));}`;
-document.getElementById('appsScriptCode').textContent=APPS_SCRIPT_CODE;
-function copyAppsScript(){navigator.clipboard.writeText(APPS_SCRIPT_CODE);showToast('Copied!','success');}
-
 // STATE
 let state={projects:[]};
 let scriptUrl=localStorage.getItem('ai_tracker_url')||'https://script.google.com/macros/s/AKfycbxvE9nK9VD3LC6AhSrnAPupyFPL4qATJ0ChXxaShxNRIhBe_Noq9JESzz6Xk7rqOrS-hg/exec';
