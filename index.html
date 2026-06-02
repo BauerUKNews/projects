@@ -16,30 +16,20 @@
     --mint-dark:    #009392;
     --lavender:     #a096ff;
     --peach:        #ff7d6a;
-    --lemon:        #fff050;
-    --aqua:         #5af0ff;
-    --taffy:        #ff78c8;
     --dark-taffy:   #d54380;
     --dark-lemon:   #f0a800;
     --dark-aqua:    #349cdc;
-
     --bg:           #ffffff;
     --bg2:          #f7f6ff;
     --bg3:          #ede9ff;
-    --surface:      #ffffff;
     --border:       #e0dcf5;
     --border2:      #c9c0f0;
     --text:         #1a0540;
     --text2:        #5a4880;
     --text3:        #9b8ab8;
-
-    --live-col:     var(--mint-dark);
     --live-bg:      var(--mint-light);
-    --dev-col:      var(--purple);
     --dev-bg:       var(--purple-light);
-    --concept-col:  #8a3060;
     --concept-bg:   #ffd2eb;
-
     --danger:       #d54380;
     --r:            10px;
     --r-sm:         6px;
@@ -57,6 +47,12 @@
   .logo-sep{opacity:0.3;margin:0 2px;}
   .header-actions{display:flex;gap:10px;align-items:center;}
 
+  /* NAV TABS in header */
+  .header-nav{display:flex;gap:2px;align-items:center;margin-left:24px;}
+  .header-nav-btn{background:rgba(255,255,255,0.1);border:none;color:rgba(255,255,255,0.7);padding:6px 14px;border-radius:var(--r-sm);cursor:pointer;font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;transition:all 0.15s;}
+  .header-nav-btn:hover{background:rgba(255,255,255,0.2);color:white;}
+  .header-nav-btn.active{background:white;color:var(--purple);}
+
   /* BUTTONS */
   .btn{display:inline-flex;align-items:center;gap:6px;padding:8px 18px;border-radius:var(--r-sm);border:none;cursor:pointer;font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;transition:all 0.15s;white-space:nowrap;line-height:1;}
   .btn-primary{background:var(--purple);color:white;}
@@ -69,6 +65,8 @@
   .btn-ghost-inv:hover{background:rgba(255,255,255,0.25);}
   .btn-danger{background:rgba(213,67,128,0.08);color:var(--danger);border:1px solid rgba(213,67,128,0.2);}
   .btn-danger:hover{background:rgba(213,67,128,0.16);}
+  .btn-danger-solid{background:var(--danger);color:white;border:none;}
+  .btn-danger-solid:hover{background:#c0356e;}
   .btn-sm{padding:5px 12px;font-size:12px;}
   .btn-icon{padding:5px 8px;}
 
@@ -95,10 +93,24 @@
   .filter-tab.active{border-color:var(--purple);color:white;background:var(--purple);}
   .filter-tab.active .count{background:rgba(255,255,255,0.25);color:white;}
 
+  /* ALL TASKS VIEW filters */
+  .tasks-filter-bar{display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap;align-items:center;}
+  .filter-input{background:white;border:1.5px solid var(--border);border-radius:var(--r-sm);padding:7px 12px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:13px;outline:none;transition:border-color 0.15s;}
+  .filter-input:focus{border-color:var(--purple);box-shadow:0 0 0 3px rgba(71,0,163,0.1);}
+  .filter-select{background:white;border:1.5px solid var(--border);border-radius:var(--r-sm);padding:7px 28px 7px 12px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:13px;outline:none;cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%235a4880' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;transition:border-color 0.15s;}
+  .filter-select:focus{border-color:var(--purple);box-shadow:0 0 0 3px rgba(71,0,163,0.1);}
+  .sort-btn{padding:7px 14px;border-radius:var(--r-sm);border:1.5px solid var(--border);background:white;color:var(--text2);font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;cursor:pointer;transition:all 0.15s;display:flex;align-items:center;gap:6px;}
+  .sort-btn:hover,.sort-btn.active{border-color:var(--purple);color:var(--purple);background:var(--purple-xlight);}
+  .tasks-count-bar{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px;}
+
+  /* All-tasks flat card with project label */
+  .all-task-card{background:white;border:1px solid var(--border);border-radius:var(--r);padding:14px 16px;display:flex;gap:12px;align-items:flex-start;transition:all 0.2s;box-shadow:var(--shadow-sm);margin-bottom:8px;}
+  .all-task-card:hover{border-color:var(--border2);box-shadow:var(--shadow-md);}
+  .task-project-label{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--purple);background:var(--purple-xlight);padding:2px 8px;border-radius:8px;white-space:nowrap;}
+  .task-folder-label{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:var(--text3);background:var(--bg3);padding:2px 8px;border-radius:8px;white-space:nowrap;}
+
   /* PROJECT GRID */
   .projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:16px;}
-
-  /* PROJECT CARD */
   .project-card{background:white;border:1px solid var(--border);border-radius:var(--r);padding:20px;cursor:pointer;transition:all 0.2s;position:relative;overflow:hidden;box-shadow:var(--shadow-sm);}
   .project-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--purple),var(--lavender));opacity:0;transition:opacity 0.2s;}
   .project-card:hover{border-color:var(--border2);transform:translateY(-3px);box-shadow:var(--shadow-lg);}
@@ -108,7 +120,7 @@
   .status-badge{flex-shrink:0;padding:3px 10px;border-radius:20px;font-size:10px;font-weight:700;font-family:'Barlow Condensed',sans-serif;letter-spacing:0.06em;text-transform:uppercase;}
   .status-live{background:var(--live-bg);color:var(--mint-dark);}
   .status-dev{background:var(--dev-bg);color:var(--purple);}
-  .status-concept{background:var(--concept-bg);color:var(--concept-col);}
+  .status-concept{background:var(--concept-bg);color:#8a3060;}
   .project-desc{font-size:13px;color:var(--text2);line-height:1.6;margin-bottom:14px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
   .project-meta{display:flex;gap:14px;font-size:11px;color:var(--text3);border-top:1px solid var(--border);padding-top:12px;font-weight:500;}
   .meta-item{display:flex;align-items:center;gap:5px;}
@@ -128,6 +140,12 @@
   .modal-close:hover{color:var(--purple);}
   .modal-body{padding:20px 24px;}
   .modal-footer{padding:16px 24px;border-top:1px solid var(--border);display:flex;gap:10px;justify-content:flex-end;background:var(--bg2);}
+
+  /* DELETE CONFIRM modal styling */
+  .delete-warning-icon{font-size:40px;text-align:center;margin-bottom:12px;}
+  .delete-warning-title{font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:800;color:var(--text);text-transform:uppercase;letter-spacing:0.03em;margin-bottom:8px;}
+  .delete-warning-desc{font-size:13px;color:var(--text2);line-height:1.6;}
+  .delete-project-name{font-weight:700;color:var(--purple);}
 
   /* FORMS */
   .form-group{margin-bottom:16px;}
@@ -152,7 +170,7 @@
   .tasks-layout{display:grid;grid-template-columns:210px 1fr;gap:20px;align-items:flex-start;}
   @media(max-width:700px){.tasks-layout{grid-template-columns:1fr;}}
 
-  /* PATH SIDEBAR */
+  /* FOLDER SIDEBAR */
   .path-sidebar{background:white;border:1px solid var(--border);border-radius:var(--r);overflow:hidden;position:sticky;top:80px;box-shadow:var(--shadow-sm);}
   .path-sidebar-header{padding:12px 14px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;background:var(--purple-xlight);}
   .path-sidebar-title{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--purple);}
@@ -169,14 +187,12 @@
   /* TASKS AREA */
   .tasks-section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
   .tasks-section-title{font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:700;color:var(--purple);text-transform:uppercase;letter-spacing:0.03em;display:flex;align-items:center;gap:10px;}
-  .path-sequence-badge{font-size:10px;padding:2px 8px;border-radius:10px;background:var(--purple-light);color:var(--purple);font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:0.05em;}
-  .standalone-badge{font-size:10px;padding:2px 8px;border-radius:10px;background:var(--mint-light);color:var(--mint-dark);font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:0.05em;}
+  .folder-badge{font-size:10px;padding:2px 8px;border-radius:10px;background:var(--bg3);color:var(--text2);font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:0.05em;}
 
   /* TASK CARDS */
   .task-list{display:flex;flex-direction:column;gap:8px;}
   .task-card{background:white;border:1px solid var(--border);border-radius:var(--r);padding:14px 16px;display:flex;gap:12px;align-items:flex-start;transition:all 0.2s;box-shadow:var(--shadow-sm);}
   .task-card:hover{border-color:var(--border2);box-shadow:var(--shadow-md);}
-  .task-card-sequence{border-left:3px solid var(--purple);}
   .task-check{width:20px;height:20px;border:2px solid var(--border2);border-radius:4px;flex-shrink:0;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.15s;margin-top:1px;background:white;}
   .task-check:hover{border-color:var(--purple);background:var(--purple-xlight);}
   .task-check.done{background:var(--purple);border-color:var(--purple);}
@@ -191,9 +207,9 @@
   .task-due{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.03em;padding:2px 8px;border-radius:8px;background:var(--bg3);color:var(--text2);}
   .task-due.overdue{background:rgba(213,67,128,0.1);color:var(--dark-taffy);}
   .task-due.soon{background:rgba(240,168,0,0.12);color:#7a5000;}
-  .task-seq-number{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;background:var(--purple-light);color:var(--purple);padding:1px 7px;border-radius:8px;}
   .task-actions{display:flex;gap:6px;flex-shrink:0;opacity:0;transition:opacity 0.15s;}
   .task-card:hover .task-actions{opacity:1;}
+  .all-task-card:hover .task-actions{opacity:1;}
   .path-group-label{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px;display:flex;align-items:center;gap:8px;}
 
   /* EMPTY STATE */
@@ -219,8 +235,6 @@
   /* MISC */
   .divider{height:1px;background:var(--border);margin:20px 0;}
   .section-label{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text3);margin-bottom:8px;}
-
-
 </style>
 </head>
 <body>
@@ -232,12 +246,17 @@
 <div class="toast" id="toast"><div class="toast-dot"></div><span id="toastMsg"></span></div>
 
 <header>
-  <div class="logo">
-    <div class="logo-mark">BM</div>
-    <span>Bauer Media</span>
-    <span class="logo-sep">|</span>
-    <span style="font-weight:400;opacity:0.85;">Project Tracker</span>
-
+  <div style="display:flex;align-items:center;gap:0">
+    <div class="logo">
+      <div class="logo-mark">BM</div>
+      <span>Bauer Media</span>
+      <span class="logo-sep">|</span>
+      <span style="font-weight:400;opacity:0.85;">Project Tracker</span>
+    </div>
+    <div class="header-nav">
+      <button class="header-nav-btn active" id="navProjects" onclick="switchView('projects')">Projects</button>
+      <button class="header-nav-btn" id="navAllTasks" onclick="switchView('alltasks')">All Tasks</button>
+    </div>
   </div>
   <div class="header-actions">
     <button class="btn btn-ghost-inv btn-sm" onclick="openSettings()">⚙ Settings</button>
@@ -272,6 +291,34 @@
     <div class="projects-grid" id="projectsGrid"></div>
   </div>
 
+  <!-- ALL TASKS VIEW -->
+  <div id="allTasksView" style="display:none;">
+    <div class="page-title-bar">
+      <div class="page-title">All Tasks</div>
+    </div>
+    <div class="tasks-filter-bar">
+      <input type="text" class="filter-input" id="atSearch" placeholder="🔍  Search tasks…" oninput="renderAllTasks()" style="min-width:200px;">
+      <select class="filter-select" id="atProject" onchange="renderAllTasks()">
+        <option value="">All Projects</option>
+      </select>
+      <select class="filter-select" id="atAssignee" onchange="renderAllTasks()">
+        <option value="">All People</option>
+      </select>
+      <select class="filter-select" id="atStatus" onchange="renderAllTasks()">
+        <option value="">All Statuses</option>
+        <option value="open">Open</option>
+        <option value="done">Done</option>
+        <option value="overdue">Overdue</option>
+        <option value="soon">Due Soon (3 days)</option>
+      </select>
+      <button class="sort-btn" id="sortDueBtn" onclick="toggleSort('due')">Due Date ↕</button>
+      <button class="sort-btn" id="sortNameBtn" onclick="toggleSort('name')">Name ↕</button>
+      <button class="btn btn-ghost btn-sm" onclick="clearAllTasksFilters()" style="margin-left:auto;">Clear Filters</button>
+    </div>
+    <div class="tasks-count-bar" id="atCountBar"></div>
+    <div id="allTasksList"></div>
+  </div>
+
   <!-- PROJECT DETAIL VIEW -->
   <div id="projectDetail" class="project-detail">
     <div class="detail-header">
@@ -282,14 +329,14 @@
       </div>
       <div class="detail-actions">
         <button class="btn btn-ghost-inv btn-sm" onclick="openEditProjectModal()">Edit</button>
-        <button class="btn btn-sm" style="background:rgba(213,67,128,0.25);color:white;border:1px solid rgba(213,67,128,0.4);" onclick="deleteCurrentProject()">Delete</button>
+        <button class="btn btn-sm" style="background:rgba(213,67,128,0.25);color:white;border:1px solid rgba(213,67,128,0.4);" onclick="confirmDeleteProject()">Delete</button>
       </div>
     </div>
     <div class="tasks-layout">
       <div>
         <div class="path-sidebar">
           <div class="path-sidebar-header">
-            <span class="path-sidebar-title">Paths</span>
+            <span class="path-sidebar-title">Folders</span>
             <button class="btn btn-ghost btn-sm btn-icon" onclick="openNewPathModal()" style="padding:3px 8px;font-size:16px;">+</button>
           </div>
           <div class="path-list" id="pathList"></div>
@@ -306,7 +353,8 @@
   </div>
 </div>
 
-<!-- MODALS -->
+<!-- ═══ MODALS ═══ -->
+
 <div class="overlay" id="projectModal">
   <div class="modal">
     <div class="modal-header">
@@ -327,21 +375,40 @@
   </div>
 </div>
 
+<!-- DELETE CONFIRM MODAL -->
+<div class="overlay" id="deleteProjectModal">
+  <div class="modal">
+    <div class="modal-header" style="background:rgba(213,67,128,0.06);">
+      <div><div class="modal-title" style="color:var(--danger);">Delete Project</div></div>
+      <button class="modal-close" onclick="closeModal('deleteProjectModal')">✕</button>
+    </div>
+    <div class="modal-body" style="text-align:center;padding:28px 24px;">
+      <div class="delete-warning-icon">⚠️</div>
+      <div class="delete-warning-title">Are you sure?</div>
+      <div class="delete-warning-desc">You're about to permanently delete <span class="delete-project-name" id="deleteProjectNameLabel"></span> and all of its tasks. This cannot be undone.</div>
+    </div>
+    <div class="modal-footer" style="background:rgba(213,67,128,0.04);">
+      <button class="btn btn-ghost" onclick="closeModal('deleteProjectModal')">Cancel</button>
+      <button class="btn btn-danger-solid" onclick="executeDeleteProject()">Yes, Delete Project</button>
+    </div>
+  </div>
+</div>
+
 <div class="overlay" id="pathModal">
   <div class="modal">
     <div class="modal-header">
-      <div><div class="modal-title">New Task Path</div><div class="modal-subtitle">Tasks in a path run in sequence. Standalone tasks run in parallel.</div></div>
+      <div><div class="modal-title">New Folder</div><div class="modal-subtitle">Group related tasks together. Tasks in a folder can be completed in any order.</div></div>
       <button class="modal-close" onclick="closeModal('pathModal')">✕</button>
     </div>
     <div class="modal-body">
-      <div class="form-group"><label class="form-label">Path Name</label><input type="text" class="form-input" id="pathName" placeholder="e.g. Backend Setup, Data Pipeline…"></div>
+      <div class="form-group"><label class="form-label">Folder Name</label><input type="text" class="form-input" id="pathName" placeholder="e.g. Backend Setup, UX Review, Launch…"></div>
       <div style="background:var(--bg2);border:1px solid var(--border);border-left:3px solid var(--mint);border-radius:var(--r-sm);padding:12px;font-size:12px;color:var(--text2);line-height:1.6;">
-        Tasks added to this path are numbered and treated as <strong style="color:var(--purple)">sequential</strong>. Use <strong style="color:var(--mint-dark)">Standalone</strong> for independent tasks with no dependency.
+        Tasks in a folder are <strong style="color:var(--purple)">independent</strong> — tick them off in any order. Use folders to group related work that can happen in parallel.
       </div>
     </div>
     <div class="modal-footer">
       <button class="btn btn-ghost" onclick="closeModal('pathModal')">Cancel</button>
-      <button class="btn btn-primary" onclick="savePath()">Create Path</button>
+      <button class="btn btn-primary" onclick="savePath()">Create Folder</button>
     </div>
   </div>
 </div>
@@ -359,8 +426,8 @@
         <div class="form-group" style="margin:0"><label class="form-label">Assign To</label><input type="text" class="form-input" id="taskAssignee" placeholder="Name or team"></div>
         <div class="form-group" style="margin:0"><label class="form-label">Due Date</label><input type="date" class="form-input" id="taskDue"></div>
       </div>
-      <div class="form-group" style="margin-top:14px"><label class="form-label">Path / Track</label>
-        <select class="form-select" id="taskPath"><option value="standalone">⬡ Standalone (parallel / no dependency)</option></select>
+      <div class="form-group" style="margin-top:14px"><label class="form-label">Folder</label>
+        <select class="form-select" id="taskPath"><option value="standalone">No folder (standalone)</option></select>
       </div>
     </div>
     <div class="modal-footer">
@@ -393,13 +460,13 @@
   </div>
 </div>
 
-
-
 <script>
 // STATE
 let state={projects:[]};
 let scriptUrl=localStorage.getItem('ai_tracker_url')||'https://script.google.com/macros/s/AKfycbxvE9nK9VD3LC6AhSrnAPupyFPL4qATJ0ChXxaShxNRIhBe_Noq9JESzz6Xk7rqOrS-hg/exec';
 let currentProjectId=null,currentFilter='all',selectedPathId=null,editingProjectId=null,editingTaskId=null;
+let currentView='projects'; // 'projects' | 'alltasks'
+let atSort=''; // '' | 'due' | 'duedesc' | 'name' | 'namedesc'
 const PATH_COLORS=['#4700a3','#009392','#d54380','#f0a800','#349cdc','#ff7d6a','#a096ff','#1fd1bd'];
 
 window.addEventListener('DOMContentLoaded',()=>{
@@ -409,13 +476,24 @@ window.addEventListener('DOMContentLoaded',()=>{
   loadFromServer();
 });
 
+// ── VIEW SWITCHING ──
+function switchView(view){
+  currentView=view;
+  document.getElementById('navProjects').classList.toggle('active',view==='projects');
+  document.getElementById('navAllTasks').classList.toggle('active',view==='alltasks');
+  document.getElementById('projectsView').style.display=view==='projects'?'block':'none';
+  document.getElementById('allTasksView').style.display=view==='alltasks'?'block':'none';
+  document.getElementById('projectDetail').classList.remove('open');
+  if(view==='alltasks') populateAllTasksFilters(),renderAllTasks();
+}
+
+// ── SERVER I/O ──
 async function loadFromServer(){
   if(!scriptUrl)return;showLoading('Loading projects…');
   try{const r=await fetch(scriptUrl);const d=await r.json();if(d&&d.projects){state=d;localStorage.setItem('ai_tracker_cache',JSON.stringify(state));}}
   catch(e){const c=localStorage.getItem('ai_tracker_cache');if(c){state=JSON.parse(c);showToast('Offline — showing cached data','info');}else showToast('Could not connect to server','error');}
   finally{hideLoading();renderProjects();}
 }
-
 async function saveToServer(){
   localStorage.setItem('ai_tracker_cache',JSON.stringify(state));
   if(!scriptUrl)return;
@@ -423,6 +501,7 @@ async function saveToServer(){
   catch(e){showToast('Saved locally (server unreachable)','info');}
 }
 
+// ── RENDER PROJECTS ──
 function renderProjects(){
   const grid=document.getElementById('projectsGrid');
   const f=currentFilter==='all'?state.projects:state.projects.filter(p=>p.status===currentFilter);
@@ -433,32 +512,155 @@ function renderProjects(){
   if(!f.length){grid.innerHTML=`<div style="grid-column:1/-1"><div class="empty-state"><div class="empty-icon">🚀</div><div class="empty-title">No projects yet</div><div class="empty-desc">Click <strong>+ New Project</strong> to get started.</div></div></div>`;return;}
   grid.innerHTML=f.map(p=>{
     const tot=(p.tasks||[]).length,done=(p.tasks||[]).filter(t=>t.done).length,pct=tot?Math.round(done/tot*100):0;
+    const folders=(p.paths||[]).length;
     return`<div class="project-card" onclick="openProject('${p.id}')">
       <div class="project-card-header"><div class="project-name">${esc(p.name)}</div><div class="status-badge status-${p.status}">${statusLabel(p.status)}</div></div>
       <div class="project-desc">${esc(p.description||'No description.')}</div>
       ${tot?`<div class="task-progress"><div style="display:flex;justify-content:space-between;font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:var(--text3);margin-bottom:5px;"><span>Progress</span><span>${done}/${tot}</span></div><div class="progress-bar-bg"><div class="progress-bar-fill" style="width:${pct}%"></div></div></div>`:''}
-      <div class="project-meta"><div class="meta-item">📋 ${tot} task${tot!==1?'s':''}</div><div class="meta-item">🛤 ${(p.paths||[]).length} path${(p.paths||[]).length!==1?'s':''}</div>${p.updatedAt?`<div class="meta-item" style="margin-left:auto">${timeAgo(p.updatedAt)}</div>`:''}</div>
+      <div class="project-meta"><div class="meta-item">📋 ${tot} task${tot!==1?'s':''}</div><div class="meta-item">📁 ${folders} folder${folders!==1?'s':''}</div>${p.updatedAt?`<div class="meta-item" style="margin-left:auto">${timeAgo(p.updatedAt)}</div>`:''}</div>
     </div>`;
   }).join('');
 }
 
+// ── ALL TASKS VIEW ──
+function populateAllTasksFilters(){
+  // projects dropdown
+  const ps=document.getElementById('atProject');
+  const curP=ps.value;
+  ps.innerHTML=`<option value="">All Projects</option>`+state.projects.map(p=>`<option value="${p.id}" ${curP===p.id?'selected':''}>${esc(p.name)}</option>`).join('');
+  // assignees dropdown
+  const allAssignees=[...new Set(state.projects.flatMap(p=>(p.tasks||[]).map(t=>t.assignee).filter(Boolean)))].sort();
+  const as=document.getElementById('atAssignee');
+  const curA=as.value;
+  as.innerHTML=`<option value="">All People</option>`+allAssignees.map(a=>`<option value="${esc(a)}" ${curA===a?'selected':''}>${esc(a)}</option>`).join('');
+}
+
+function renderAllTasks(){
+  const search=(document.getElementById('atSearch').value||'').toLowerCase();
+  const filterProject=document.getElementById('atProject').value;
+  const filterAssignee=document.getElementById('atAssignee').value;
+  const filterStatus=document.getElementById('atStatus').value;
+
+  // Gather all tasks with project context
+  let rows=[];
+  state.projects.forEach(p=>{
+    (p.tasks||[]).forEach(t=>{
+      rows.push({task:t,project:p,folder:(p.paths||[]).find(f=>f.id===t.pathId)||null});
+    });
+  });
+
+  // Filter
+  if(filterProject) rows=rows.filter(r=>r.project.id===filterProject);
+  if(filterAssignee) rows=rows.filter(r=>r.task.assignee===filterAssignee);
+  if(filterStatus==='open') rows=rows.filter(r=>!r.task.done);
+  else if(filterStatus==='done') rows=rows.filter(r=>r.task.done);
+  else if(filterStatus==='overdue') rows=rows.filter(r=>!r.task.done&&getDueStatus(r.task.dueDate)==='overdue');
+  else if(filterStatus==='soon') rows=rows.filter(r=>!r.task.done&&getDueStatus(r.task.dueDate)==='soon');
+  if(search) rows=rows.filter(r=>r.task.name.toLowerCase().includes(search)||r.task.description?.toLowerCase().includes(search)||r.task.assignee?.toLowerCase().includes(search)||r.project.name.toLowerCase().includes(search));
+
+  // Sort
+  if(atSort==='due') rows.sort((a,b)=>(a.task.dueDate||'9999')>(b.task.dueDate||'9999')?1:-1);
+  else if(atSort==='duedesc') rows.sort((a,b)=>(a.task.dueDate||'0000')<(b.task.dueDate||'0000')?1:-1);
+  else if(atSort==='name') rows.sort((a,b)=>a.task.name.localeCompare(b.task.name));
+  else if(atSort==='namedesc') rows.sort((a,b)=>b.task.name.localeCompare(a.task.name));
+
+  document.getElementById('atCountBar').textContent=`${rows.length} task${rows.length!==1?'s':''}`;
+
+  if(!rows.length){
+    document.getElementById('allTasksList').innerHTML=`<div class="empty-state"><div class="empty-icon">✓</div><div class="empty-title">No tasks match</div><div class="empty-desc">Try adjusting the filters above.</div></div>`;
+    return;
+  }
+
+  document.getElementById('allTasksList').innerHTML=rows.map(({task,project,folder})=>{
+    const ds=getDueStatus(task.dueDate);const dc=ds==='overdue'?'overdue':ds==='soon'?'soon':'';
+    const initials=task.assignee?task.assignee.split(' ').map(w=>w[0]).join('').toUpperCase().slice(0,2):'';
+    const ac=task.assignee?stringToColor(task.assignee):'var(--purple)';
+    return`<div class="all-task-card task-card">
+      <div class="task-check${task.done?' done':''}" onclick="toggleTaskGlobal('${project.id}','${task.id}')"></div>
+      <div class="task-content">
+        <div class="task-name${task.done?' done-text':''}">${esc(task.name)}</div>
+        ${task.description?`<div class="task-desc">${esc(task.description)}</div>`:''}
+        <div class="task-meta-row">
+          <span class="task-project-label" style="cursor:pointer" onclick="openProject('${project.id}')">${esc(project.name)}</span>
+          ${folder?`<span class="task-folder-label">📁 ${esc(folder.name)}</span>`:''}
+          ${task.assignee?`<div class="task-assignee"><div class="avatar" style="background:${ac}">${initials}</div>${esc(task.assignee)}</div>`:''}
+          ${task.dueDate?`<div class="task-due ${dc}">${formatDate(task.dueDate)}</div>`:''}
+        </div>
+      </div>
+      <div class="task-actions">
+        <button class="btn btn-ghost btn-sm btn-icon" onclick="goEditTask('${project.id}','${task.id}')">✎</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function toggleSort(field){
+  if(atSort===field) atSort=field+'desc';
+  else if(atSort===field+'desc') atSort='';
+  else atSort=field;
+  document.getElementById('sortDueBtn').classList.toggle('active',atSort==='due'||atSort==='duedesc');
+  document.getElementById('sortNameBtn').classList.toggle('active',atSort==='name'||atSort==='namedesc');
+  renderAllTasks();
+}
+
+function clearAllTasksFilters(){
+  document.getElementById('atSearch').value='';
+  document.getElementById('atProject').value='';
+  document.getElementById('atAssignee').value='';
+  document.getElementById('atStatus').value='';
+  atSort='';
+  document.getElementById('sortDueBtn').classList.remove('active');
+  document.getElementById('sortNameBtn').classList.remove('active');
+  renderAllTasks();
+}
+
+async function toggleTaskGlobal(projectId,taskId){
+  const p=getProject(projectId);const t=(p.tasks||[]).find(t=>t.id===taskId);if(!t)return;
+  t.done=!t.done;p.updatedAt=Date.now();await saveToServer();
+  renderAllTasks();
+  // If currently in project detail too, keep it fresh
+  if(currentProjectId===projectId) renderTasks();
+}
+
+function goEditTask(projectId,taskId){
+  // Switch to project, then open edit modal
+  if(currentProjectId!==projectId){
+    openProject(projectId);
+    // After opening we need a tick to let DOM settle
+    setTimeout(()=>openEditTaskModal(taskId),50);
+  } else {
+    openEditTaskModal(taskId);
+  }
+}
+
+// ── PROJECT DETAIL ──
 function openProject(id){
   currentProjectId=id;selectedPathId=null;
   const p=getProject(id);if(!p)return;
+  // Switch to projects view if we're in alltasks
+  document.getElementById('allTasksView').style.display='none';
   document.getElementById('projectsView').style.display='none';
+  document.getElementById('navProjects').classList.add('active');
+  document.getElementById('navAllTasks').classList.remove('active');
+  currentView='projects';
   document.getElementById('projectDetail').classList.add('open');
   document.getElementById('detailProjectName').innerHTML=`${esc(p.name)} <span class="status-badge status-${p.status}" style="font-size:12px;">${statusLabel(p.status)}</span>`;
   document.getElementById('detailProjectDesc').textContent=p.description||'';
   renderPaths();renderTasks();
 }
 
-function backToProjects(){currentProjectId=null;document.getElementById('projectsView').style.display='block';document.getElementById('projectDetail').classList.remove('open');renderProjects();}
+function backToProjects(){
+  currentProjectId=null;
+  document.getElementById('projectsView').style.display='block';
+  document.getElementById('projectDetail').classList.remove('open');
+  renderProjects();
+}
 
 function renderPaths(){
   const p=getProject(currentProjectId);const paths=p.paths||[];
-  const standalone=(p.tasks||[]).filter(t=>t.pathId==='standalone').length;
+  const standalone=(p.tasks||[]).filter(t=>t.pathId==='standalone'||!t.pathId).length;
   let html=`<div class="path-item ${selectedPathId===null?'active':''}" onclick="selectPath(null)"><div class="path-dot" style="background:var(--purple)"></div><div class="path-name">All Tasks</div><div class="path-count">${(p.tasks||[]).length}</div></div>
-  <div class="path-item ${selectedPathId==='standalone'?'active':''}" onclick="selectPath('standalone')"><div class="path-dot" style="background:var(--mint)"></div><div class="path-name">Standalone</div><div class="path-count">${standalone}</div></div>`;
+  <div class="path-item ${selectedPathId==='standalone'?'active':''}" onclick="selectPath('standalone')"><div class="path-dot" style="background:var(--mint)"></div><div class="path-name">No Folder</div><div class="path-count">${standalone}</div></div>`;
   html+=paths.map((path,i)=>{const count=(p.tasks||[]).filter(t=>t.pathId===path.id).length;const col=PATH_COLORS[i%PATH_COLORS.length];return`<div class="path-item ${selectedPathId===path.id?'active':''}" onclick="selectPath('${path.id}')"><div class="path-dot" style="background:${col}"></div><div class="path-name">${esc(path.name)}</div><div class="path-count">${count}</div></div>`;}).join('');
   document.getElementById('pathList').innerHTML=html;
 }
@@ -469,38 +671,44 @@ function renderTasks(){
   const p=getProject(currentProjectId);const tasks=p.tasks||[],paths=p.paths||[];
   const container=document.getElementById('tasksList');const titleEl=document.getElementById('tasksAreaTitle');
   let ftasks=tasks,titleHtml='All Tasks';
-  if(selectedPathId==='standalone'){ftasks=tasks.filter(t=>t.pathId==='standalone');titleHtml=`Standalone Tasks <span class="standalone-badge">PARALLEL</span>`;}
-  else if(selectedPathId){const path=paths.find(p2=>p2.id===selectedPathId);ftasks=tasks.filter(t=>t.pathId===selectedPathId);const pi=paths.indexOf(path);const col=PATH_COLORS[pi%PATH_COLORS.length];titleHtml=`<span style="color:${col}">${esc(path?.name||'')}</span> <span class="path-sequence-badge">SEQUENTIAL</span>`;}
+
+  if(selectedPathId==='standalone'){
+    ftasks=tasks.filter(t=>t.pathId==='standalone'||!t.pathId);
+    titleHtml=`No Folder <span class="folder-badge">STANDALONE</span>`;
+  } else if(selectedPathId){
+    const path=paths.find(p2=>p2.id===selectedPathId);
+    ftasks=tasks.filter(t=>t.pathId===selectedPathId);
+    const pi=paths.indexOf(path);const col=PATH_COLORS[pi%PATH_COLORS.length];
+    titleHtml=`<span style="color:${col}">📁 ${esc(path?.name||'')}</span>`;
+  }
   titleEl.innerHTML=titleHtml;
-  if(!ftasks.length){container.innerHTML=`<div class="empty-state"><div class="empty-icon">✓</div><div class="empty-title">No tasks here yet</div><div class="empty-desc">Add a task to this ${selectedPathId&&selectedPathId!=='standalone'?'path':'project'}.</div></div>`;return;}
-  if(selectedPathId&&selectedPathId!=='standalone'){ftasks=[...ftasks].sort((a,b)=>(a.seqOrder||0)-(b.seqOrder||0));container.innerHTML=`<div style="border-left:3px solid var(--purple);padding-left:12px"><div class="task-list">${ftasks.map((t,i)=>renderTaskCard(t,true,i+1,paths)).join('')}</div></div>`;return;}
+  if(!ftasks.length){container.innerHTML=`<div class="empty-state"><div class="empty-icon">✓</div><div class="empty-title">No tasks here yet</div><div class="empty-desc">Add a task to this ${selectedPathId&&selectedPathId!=='standalone'?'folder':'project'}.</div></div>`;return;}
   if(!selectedPathId){container.innerHTML=renderGroupedTasks(p,tasks,paths);return;}
-  container.innerHTML=`<div class="task-list">${ftasks.map(t=>renderTaskCard(t,false,null,paths)).join('')}</div>`;
+  container.innerHTML=`<div class="task-list">${ftasks.map(t=>renderTaskCard(t,paths)).join('')}</div>`;
 }
 
 function renderGroupedTasks(p,tasks,paths){
   let html='';
-  const sa=tasks.filter(t=>t.pathId==='standalone');
-  if(sa.length)html+=`<div style="margin-bottom:20px"><div class="path-group-label" style="color:var(--mint-dark)"><span style="width:8px;height:8px;border-radius:50%;background:var(--mint);display:inline-block"></span>Standalone</div><div class="task-list">${sa.map(t=>renderTaskCard(t,false,null,paths)).join('')}</div></div>`;
+  const sa=tasks.filter(t=>t.pathId==='standalone'||!t.pathId);
+  if(sa.length)html+=`<div style="margin-bottom:20px"><div class="path-group-label" style="color:var(--text3)"><span style="width:8px;height:8px;border-radius:50%;background:var(--mint);display:inline-block"></span>No Folder</div><div class="task-list">${sa.map(t=>renderTaskCard(t,paths)).join('')}</div></div>`;
   paths.forEach((path,pi)=>{
-    const pt=tasks.filter(t=>t.pathId===path.id).sort((a,b)=>(a.seqOrder||0)-(b.seqOrder||0));if(!pt.length)return;
+    const pt=tasks.filter(t=>t.pathId===path.id);if(!pt.length)return;
     const col=PATH_COLORS[pi%PATH_COLORS.length];
-    html+=`<div style="margin-bottom:20px"><div class="path-group-label" style="color:${col}"><span style="width:8px;height:8px;border-radius:50%;background:${col};display:inline-block"></span>${esc(path.name)}<span style="font-size:9px;background:var(--bg3);color:var(--text3);padding:1px 6px;border-radius:8px;margin-left:4px;font-weight:700;">SEQUENTIAL</span></div><div style="border-left:3px solid ${col};padding-left:10px"><div class="task-list">${pt.map((t,i)=>renderTaskCard(t,true,i+1,paths)).join('')}</div></div></div>`;
+    html+=`<div style="margin-bottom:20px"><div class="path-group-label" style="color:${col}"><span style="width:8px;height:8px;border-radius:50%;background:${col};display:inline-block"></span>📁 ${esc(path.name)}</div><div class="task-list">${pt.map(t=>renderTaskCard(t,paths)).join('')}</div></div>`;
   });
   return html||`<div class="empty-state"><div class="empty-icon">✓</div><div class="empty-title">No tasks yet</div></div>`;
 }
 
-function renderTaskCard(task,isSeq,seqNum,paths){
+function renderTaskCard(task,paths){
   const ds=getDueStatus(task.dueDate);const dc=ds==='overdue'?'overdue':ds==='soon'?'soon':'';
   const initials=task.assignee?task.assignee.split(' ').map(w=>w[0]).join('').toUpperCase().slice(0,2):'';
   const ac=task.assignee?stringToColor(task.assignee):'var(--purple)';
-  return`<div class="task-card${isSeq?' task-card-sequence':''}" data-id="${task.id}">
+  return`<div class="task-card" data-id="${task.id}">
     <div class="task-check${task.done?' done':''}" onclick="toggleTask('${task.id}')"></div>
     <div class="task-content">
       <div class="task-name${task.done?' done-text':''}">${esc(task.name)}</div>
       ${task.description?`<div class="task-desc">${esc(task.description)}</div>`:''}
       <div class="task-meta-row">
-        ${isSeq&&seqNum?`<span class="task-seq-number">#${seqNum}</span>`:''}
         ${task.assignee?`<div class="task-assignee"><div class="avatar" style="background:${ac}">${initials}</div>${esc(task.assignee)}</div>`:''}
         ${task.dueDate?`<div class="task-due ${dc}">${formatDate(task.dueDate)}</div>`:''}
       </div>
@@ -512,7 +720,7 @@ function renderTaskCard(task,isSeq,seqNum,paths){
   </div>`;
 }
 
-// CRUD
+// ── PROJECT CRUD ──
 function openNewProjectModal(){editingProjectId=null;document.getElementById('projectModalTitle').textContent='New Project';document.getElementById('saveProjectBtn').textContent='Create Project';['projName','projDesc'].forEach(id=>document.getElementById(id).value='');document.getElementById('projStatus').value='concept';openModal('projectModal');}
 function openEditProjectModal(){const p=getProject(currentProjectId);if(!p)return;editingProjectId=currentProjectId;document.getElementById('projectModalTitle').textContent='Edit Project';document.getElementById('saveProjectBtn').textContent='Save Changes';document.getElementById('projName').value=p.name;document.getElementById('projDesc').value=p.description||'';document.getElementById('projStatus').value=p.status;openModal('projectModal');}
 async function saveProject(){
@@ -522,29 +730,53 @@ async function saveProject(){
   else state.projects.push({id:uid(),name,description:desc,status,tasks:[],paths:[],createdAt:Date.now(),updatedAt:Date.now()});
   closeModal('projectModal');await saveToServer();renderProjects();showToast(editingProjectId?'Project updated':'Project created','success');
 }
-async function deleteCurrentProject(){if(!confirm('Delete this project and all its tasks?'))return;state.projects=state.projects.filter(p=>p.id!==currentProjectId);backToProjects();await saveToServer();showToast('Project deleted','info');}
+
+// Delete with confirmation modal
+function confirmDeleteProject(){
+  const p=getProject(currentProjectId);if(!p)return;
+  document.getElementById('deleteProjectNameLabel').textContent=p.name;
+  openModal('deleteProjectModal');
+}
+async function executeDeleteProject(){
+  state.projects=state.projects.filter(p=>p.id!==currentProjectId);
+  closeModal('deleteProjectModal');
+  backToProjects();
+  await saveToServer();
+  showToast('Project deleted','info');
+}
+
+// ── FOLDER CRUD ──
 function openNewPathModal(){document.getElementById('pathName').value='';openModal('pathModal');}
-async function savePath(){const name=document.getElementById('pathName').value.trim();if(!name){showToast('Enter a path name','error');return;}const p=getProject(currentProjectId);if(!p.paths)p.paths=[];p.paths.push({id:uid(),name});p.updatedAt=Date.now();closeModal('pathModal');await saveToServer();renderPaths();renderTasks();showToast('Path created','success');}
-function buildPathSelect(sel){const p=getProject(currentProjectId);const paths=p.paths||[];const sa=!sel||sel==='standalone';let opts=`<option value="standalone" ${sa?'selected':''}>⬡ Standalone (parallel / no dependency)</option>`;opts+=paths.map((path,i)=>`<option value="${path.id}" ${sel===path.id?'selected':''}>↳ ${esc(path.name)} (sequential)</option>`).join('');document.getElementById('taskPath').innerHTML=opts;}
+async function savePath(){const name=document.getElementById('pathName').value.trim();if(!name){showToast('Enter a folder name','error');return;}const p=getProject(currentProjectId);if(!p.paths)p.paths=[];p.paths.push({id:uid(),name});p.updatedAt=Date.now();closeModal('pathModal');await saveToServer();renderPaths();renderTasks();showToast('Folder created','success');}
+
+// ── TASK CRUD ──
+function buildPathSelect(sel){
+  const p=getProject(currentProjectId);const paths=p.paths||[];
+  const sa=!sel||sel==='standalone';
+  let opts=`<option value="standalone" ${sa?'selected':''}>No folder (standalone)</option>`;
+  opts+=paths.map(path=>`<option value="${path.id}" ${sel===path.id?'selected':''}>📁 ${esc(path.name)}</option>`).join('');
+  document.getElementById('taskPath').innerHTML=opts;
+}
 function openNewTaskModal(){editingTaskId=null;document.getElementById('taskModalTitle').textContent='New Task';document.getElementById('saveTaskBtn').textContent='Add Task';['taskName','taskDesc','taskAssignee','taskDue'].forEach(id=>document.getElementById(id).value='');buildPathSelect(selectedPathId!==null?selectedPathId:'standalone');openModal('taskModal');}
 function openEditTaskModal(tid){const p=getProject(currentProjectId);const task=(p.tasks||[]).find(t=>t.id===tid);if(!task)return;editingTaskId=tid;document.getElementById('taskModalTitle').textContent='Edit Task';document.getElementById('saveTaskBtn').textContent='Save Changes';document.getElementById('taskName').value=task.name;document.getElementById('taskDesc').value=task.description||'';document.getElementById('taskAssignee').value=task.assignee||'';document.getElementById('taskDue').value=task.dueDate||'';buildPathSelect(task.pathId);openModal('taskModal');}
 async function saveTask(){
   const name=document.getElementById('taskName').value.trim();if(!name){showToast('Task name required','error');return;}
   const desc=document.getElementById('taskDesc').value.trim(),assignee=document.getElementById('taskAssignee').value.trim(),dueDate=document.getElementById('taskDue').value,pathId=document.getElementById('taskPath').value;
   const p=getProject(currentProjectId);if(!p.tasks)p.tasks=[];
-  if(editingTaskId){const t=p.tasks.find(t=>t.id===editingTaskId);const op=t.pathId;t.name=name;t.description=desc;t.assignee=assignee;t.dueDate=dueDate;if(pathId!==op){t.pathId=pathId;if(pathId!=='standalone')t.seqOrder=p.tasks.filter(t2=>t2.pathId===pathId&&t2.id!==editingTaskId).length+1;}}
-  else{const so=pathId!=='standalone'?(p.tasks.filter(t=>t.pathId===pathId).length+1):0;p.tasks.push({id:uid(),name,description:desc,assignee,dueDate,pathId,seqOrder:so,done:false,createdAt:Date.now()});}
+  if(editingTaskId){const t=p.tasks.find(t=>t.id===editingTaskId);t.name=name;t.description=desc;t.assignee=assignee;t.dueDate=dueDate;t.pathId=pathId;}
+  else p.tasks.push({id:uid(),name,description:desc,assignee,dueDate,pathId,done:false,createdAt:Date.now()});
   p.updatedAt=Date.now();closeModal('taskModal');await saveToServer();renderPaths();renderTasks();showToast(editingTaskId?'Task updated':'Task added','success');
 }
 async function toggleTask(tid){const p=getProject(currentProjectId);const t=(p.tasks||[]).find(t=>t.id===tid);if(!t)return;t.done=!t.done;p.updatedAt=Date.now();await saveToServer();renderTasks();}
 async function deleteTask(tid){const p=getProject(currentProjectId);p.tasks=(p.tasks||[]).filter(t=>t.id!==tid);p.updatedAt=Date.now();await saveToServer();renderPaths();renderTasks();showToast('Task deleted','info');}
 
-// SETTINGS
+// ── SETTINGS ──
 function openSettings(){document.getElementById('settingsScriptUrl').value=scriptUrl;openModal('settingsModal');}
 function saveScriptUrl(){const url=document.getElementById('script-url-input').value.trim();if(!url)return;scriptUrl=url;localStorage.setItem('ai_tracker_url',url);document.getElementById('settings-banner').classList.add('hidden');document.getElementById('settingsScriptUrl').value=url;loadFromServer();showToast('Connected!','success');}
 function saveSettingsUrl(){const url=document.getElementById('settingsScriptUrl').value.trim();scriptUrl=url;localStorage.setItem('ai_tracker_url',url);closeModal('settingsModal');if(url){loadFromServer();showToast('URL saved','success');}}
 function dismissBanner(){document.getElementById('settings-banner').classList.add('hidden');}
 function clearLocalData(){if(!confirm('Clear all locally cached data?'))return;localStorage.removeItem('ai_tracker_cache');state={projects:[]};renderProjects();closeModal('settingsModal');showToast('Local cache cleared','info');}
+
 function setFilter(el,f){document.querySelectorAll('.filter-tab').forEach(t=>t.classList.remove('active'));el.classList.add('active');currentFilter=f;renderProjects();}
 function openModal(id){document.getElementById(id).classList.add('open');document.body.style.overflow='hidden';}
 function closeModal(id){document.getElementById(id).classList.remove('open');document.body.style.overflow='';}
